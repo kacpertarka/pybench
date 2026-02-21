@@ -98,7 +98,9 @@ def multiply_matrices(size):
             C[i][j] = sum(A[i][k] * B[k][j] for k in range(size))
 
 
-def compress(n, algo_class, algo_args=[]):
+def compress(n, algo_class, algo_args=None):
+    if algo_args is None:
+        algo_args = []
     algo = algo_class(*algo_args)
     data = printable.encode()
     for i in progress_bar(range(n)):
